@@ -17,6 +17,7 @@ public class MonsterController
 		boolean hasBellyButton = true;
 		String name = "Bobby Lee";
 		
+		myOutput = new MarshmallowOutput();
 		billyMonster = new MarshmallowMonster(name, eyes, noses, hair, legs, hasBellyButton);
 	}
 	
