@@ -88,7 +88,7 @@ public class MarshmallowMonster
 	
 	public String toString()
 	{
-		String monster = "This monster has " + monsterEyes + " eyes, and its' name is " + monsterName + ".  Bobby has " + monsterNoses + " nose, and has only " + monsterHair + " strands of hair.";
+		String monster = "This monster has " + monsterEyes + " eyes, and its' name is " + monsterName + ".  It has " + monsterNoses + " nose, and has only " + monsterHair + " strands of hair.  It also has " + monsterLegs + " legs.";
 		
 		return monster;
 	}
