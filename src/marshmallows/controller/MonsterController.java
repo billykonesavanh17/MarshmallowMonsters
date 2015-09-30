@@ -10,6 +10,7 @@ public class MonsterController
 	private MarshmallowMonster userMonster;
 	private MarshmallowOutput myOutput; 
 	private Scanner monsterScanner;
+	private MarshmallowOutput myPopups;
 	
 	public MonsterController()
 	{
@@ -23,6 +24,8 @@ public class MonsterController
 		monsterScanner = new Scanner(System.in);
 		myOutput = new MarshmallowOutput();
 		billyMonster = new MarshmallowMonster(name, eyes, noses, hair, legs, hasBellyButton);
+		
+		myPopups = new MarshmallowOutput();
 	}
 	
 	public void start()
@@ -33,6 +36,19 @@ public class MonsterController
 		myOutput.displayMonsterGUI1(billyMonster.toString());
 		myOutput.displayMonsterGUI2(billyMonster.toString());
 		myOutput.displayMonsterGUI3(billyMonster.toString());
+		
+		String monsterName = myPopups.grabAnswer("Type in your monster's name.");
+		myPopups.showResponse("Your monster's name is " + monsterName + ".");
+		
+		String monsterEyes = myPopups.grabAnswer("Type in the amount of eyes for " + monsterName + ".");
+		myPopups.showResponse(monsterName + " has " + monsterEyes + " eye(s).");
+		
+		String monsterLegs = myPopups.grabAnswer("Type in the amount of legs for " + monsterName + ".");
+		myPopups.showResponse(monsterName + " has " + monsterLegs + " leg(s).");
+		
+		String monsterHair = myPopups.grabAnswer("Type in the amount of strands of hair for " + monsterName + ".");
+		myPopups.showResponse(monsterName + " has " + monsterHair + " strand(s) of hair.");
+		
 	}
 	
 	private void askQuestions()

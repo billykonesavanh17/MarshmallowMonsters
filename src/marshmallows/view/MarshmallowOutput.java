@@ -29,4 +29,15 @@ public class MarshmallowOutput
 		JOptionPane.showMessageDialog(null, "How many legs?");
 	}
 	
+	public void showResponse(String wordsFromSomewhere)
+	{
+		JOptionPane.showMessageDialog(null, wordsFromSomewhere);
+	}
+	
+	public String grabAnswer(String stuff)
+	{
+		String answer = "";
+		answer = JOptionPane.showInputDialog(null, stuff);
+		return answer;
+	}
 }
