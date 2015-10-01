@@ -3,6 +3,7 @@ package marshmallows.controller;
 import marshmallows.model.MarshmallowMonster;
 import marshmallows.view.MarshmallowOutput;
 import java.util.Scanner;
+import marshmallows.model.Thing;
 
 public class MonsterController
 {
@@ -11,6 +12,9 @@ public class MonsterController
 	private MarshmallowOutput myOutput; 
 	private Scanner monsterScanner;
 	private MarshmallowOutput myPopups;
+	private Thing myTestThing;
+	
+
 	
 	public MonsterController()
 	{
@@ -40,17 +44,109 @@ public class MonsterController
 		String monsterName = myPopups.grabAnswer("Type in your monster's name.");
 		myPopups.showResponse("Your monster's name is " + monsterName + ".");
 		
-		String monsterEyes = myPopups.grabAnswer("Type in the amount of eyes for " + monsterName + ".");
-		myPopups.showResponse(monsterName + " has " + monsterEyes + " eye(s).");
+		String tempEyes = myPopups.grabAnswer("Type in the amount of eyes for " + monsterName + ".");
+		int monsterEyes;
+		while(!isInteger(tempEyes))
+		{
+			tempEyes = myPopups.grabAnswer("Type in a positive integer for " + monsterName + "'s eye(s).");
+		}
+		if(isInteger(tempEyes))
+		{
+			monsterEyes = Integer.parseInt(tempEyes);
+		}
+		else
+		{
+			monsterEyes = -9999999;
+		}
+		myPopups.showResponse(monsterName + " has " + tempEyes + " eye(s).");
 		
-		String monsterLegs = myPopups.grabAnswer("Type in the amount of legs for " + monsterName + ".");
-		myPopups.showResponse(monsterName + " has " + monsterLegs + " leg(s).");
+		String tempLegs = myPopups.grabAnswer("Type in the amount of legs for " + monsterName + ".");
+		double monsterLegs;
+		while(!isDouble(tempLegs))
+		{
+			tempLegs = myPopups.grabAnswer("Type in a positive integer for " + monsterName + "'s leg(s).");
+		}
+		if(isDouble(tempLegs))
+		{
+			monsterLegs = Double.parseDouble(tempLegs);
+		}
+		else
+		{
+			monsterLegs = -9999.99;
+		}
+		myPopups.showResponse(monsterName + " has " + tempLegs + " leg(s).");
 		
-		String monsterHair = myPopups.grabAnswer("Type in the amount of strands of hair for " + monsterName + ".");
-		myPopups.showResponse(monsterName + " has " + monsterHair + " strand(s) of hair.");
-		
+		String tempHair = myPopups.grabAnswer("Type in the amount of strands of hair for " + monsterName + ".");
+		double monsterHair;
+		while(!isDouble(tempHair))
+		{
+			tempHair = myPopups.grabAnswer("Type in a positive integer for " + monsterName + "'s strand(s) of hair.");
+		}
+		if(isDouble(tempHair))
+		{
+			monsterHair = Double.parseDouble(tempHair);
+		}
+		else
+		{
+			monsterHair = -9999.99;
+		}
+		myPopups.showResponse(monsterName + " has " + tempHair + " strand(s) of hair.");
+	
+		myTestThing = new Thing(monsterName, monsterEyes, monsterLegs, monsterHair);
 	}
 	
+	private boolean isInteger(String input)
+	{
+		boolean isInt = false;
+		
+		try
+		{
+			int tempEyes = Integer.parseInt(input);
+			isInt = true;
+		}
+		catch(NumberFormatException error)
+		{
+			myPopups.showResponse("not an int - bad value will be used");
+		}
+		
+		return isInt;
+	}
+	
+	private boolean isDouble(String input)
+	{
+		boolean isDouble = false;
+		
+		try
+		{
+			double tempLegs = Double.parseDouble(input);
+			isDouble = true;
+		}
+		catch(NumberFormatException error)
+		{
+			myPopups.showResponse("not a doulbe - bad value will be used");
+		}
+		
+		return isDouble;
+	}
+	
+	private boolean isDouble2(String input)
+	{
+		boolean isDouble = false;
+		
+		try
+		{
+			double tempHair = Double.parseDouble(input);
+			isDouble = true;
+		}
+		catch(NumberFormatException error)
+		{
+			myPopups.showResponse("not a double - bad vallue will be used");
+		}
+		
+		return isDouble;
+	}
+	
+
 	private void askQuestions()
 	{
 		System.out.println("Type in a better name for the monster.");
