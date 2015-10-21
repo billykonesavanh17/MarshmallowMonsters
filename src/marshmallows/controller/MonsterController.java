@@ -12,12 +12,11 @@ public class MonsterController
 	private MarshmallowOutput myOutput; 
 	private Scanner monsterScanner;
 	private MarshmallowOutput myPopups;
-<<<<<<< HEAD
-=======
+
 	private Thing myTestThing;
 	
 
->>>>>>> origin/master
+
 	
 	public MonsterController()
 	{
@@ -31,10 +30,7 @@ public class MonsterController
 		monsterScanner = new Scanner(System.in);
 		myOutput = new MarshmallowOutput();
 		billyMonster = new MarshmallowMonster(name, eyes, noses, hair, legs, hasBellyButton);
-<<<<<<< HEAD
-=======
-		
->>>>>>> origin/master
+
 		myPopups = new MarshmallowOutput();
 	}
 	
@@ -47,18 +43,10 @@ public class MonsterController
 		myOutput.displayMonsterGUI2(billyMonster.toString());
 		myOutput.displayMonsterGUI3(billyMonster.toString());
 		
-<<<<<<< HEAD
+
 		String monsterName = myPopups.grabAnswer("Type in monster name.");
 		myPopups.showResponse("Your monster's name is " + monsterName);
 		
-		String temp = myPopups.grabAnswer("Type in number of eyes.");
-		myPopups.showResponse("Your monster has " + temp + " eye(s).");
-		
-		String tempLegs = myPopups.grabAnswer("Type in number of legs");
-		myPopups.showResponse("Your monster has " + tempLegs + " leg(s).");
-=======
-		String monsterName = myPopups.grabAnswer("Type in your monster's name.");
-		myPopups.showResponse("Your monster's name is " + monsterName + ".");
 		
 		String tempEyes = myPopups.grabAnswer("Type in the amount of eyes for " + monsterName + ".");
 		int monsterEyes;
@@ -143,7 +131,7 @@ public class MonsterController
 		}
 		
 		return isDouble;
->>>>>>> origin/master
+
 	}
 	
 	private boolean isDouble2(String input)
